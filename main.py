@@ -1,6 +1,9 @@
+import os
 import disnake
+from dotenv import load_dotenv
 from disnake.ext import commands
 
+load_dotenv(dotenv_path="config")
 intents = disnake.Intents.all()
 
 bot = commands.Bot(
@@ -59,7 +62,7 @@ async def ban(ctx, user: disnake.User, *reason):
     embed.add_field(name="Membre banni", value=user.name, inline=False)
     embed.add_field(name="Raison du ban", value=reason, inline=False)
     await ctx.send(embed=embed)
-    # await ctx.guild.ban(user, reason=reason)
+    await ctx.guild.ban(user, reason=reason)
 
 
 @bot.command()
@@ -72,7 +75,7 @@ async def kick(ctx, user: disnake.User, *reason):
     embed.add_field(name="Membre kick", value=user.name, inline=False)
     embed.add_field(name="Raison du ban", value=reason, inline=False)
     await ctx.send(embed=embed)
-    # await ctx.guild.kick(user, reason=reason)
+    await ctx.guild.kick(user, reason=reason)
 
 
-bot.run("MTAyMTgxMDE2ODMxODY1NjUzNA.GPITiq.3t0_e2T5I72eRcO6OWa9UFHeimsYsiHMBJkA7Y")
+bot.run(os.getenv("TOKEN"))

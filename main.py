@@ -3,7 +3,7 @@ import disnake
 from dotenv import load_dotenv
 from disnake.ext import commands
 
-load_dotenv(dotenv_path="config")
+load_dotenv(dotenv_path=".env/config")
 intents = disnake.Intents.all()
 
 bot = commands.Bot(

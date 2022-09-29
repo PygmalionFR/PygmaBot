@@ -11,7 +11,7 @@ bot = commands.Bot(
 )
 
 headers = {
-    'X-CMC_PRO_API_KEY': apikey.key,
+    'X-CMC_PRO_API_KEY': apikey.btc,
     'accepts': 'application/json'
 }
 
@@ -108,4 +108,4 @@ async def kick(ctx, user: disnake.User, *reason):
 async def btc(ctx):
     await ctx.send(f'Le Bitcoin est à : ||{token}|| €')
 
-bot.run("MTAyMTgxMDE2ODMxODY1NjUzNA.Gusfuy.edFOK0xhSRs0l_ymbatwk075qKwqYTqM1sbFBY")
+bot.run(apikey.keybot)
